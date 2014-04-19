@@ -16,9 +16,22 @@
         <li><a href="#">Projects</a></li>
         <li><a href="#">Contacts</a></li>
         <li><a href="#">Order</a></li>
+        <% if current_user %>
+        <li><%= link_to "Log out", log_out_path %></li>
+        <% else %>
+        <li><%= link_to "Sign up", sign_up_path %></li>
+        <li><%= link_to "Log in", log_in_path %></li>
+        <% end %>
       </ul>
     </header>
-<%= yield %>
+    <div class="content">
+      <div class="errors">
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, :id => "flash#{name}" %>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
 
 </body>
 </html>

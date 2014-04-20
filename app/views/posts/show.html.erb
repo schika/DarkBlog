@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @post.date %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<p><%= @post.date %></p>
+<h2><%= @post.title %></h2>
+<p><%= @post.text %></p>
+<% if current_user.role == 1 %>
+[ <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %> ]
+<% end %>
+<hr />
+<div id="comments">
+    <h2>Comments</h2>
+    <ol>
+    <% @post.comments.each do |comment| %>
+        <li class="comment">
+            <p style="font-weight: bold;"><%= User.find_by_id(comment.user_id).email %></p>
+            <p style="margin-left: 10px"><%= comment.text %></p>
+        </li>
+    <% end %>
+    </ol>
+    <% if current_user %>
+        <h2>Leave a reply: </h2>
+        <%= render "comments/form" %>
+    <% end %>
+</div>

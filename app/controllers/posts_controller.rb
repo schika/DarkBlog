@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -62,6 +63,12 @@ class PostsController < ApplicationController
   end
 
   private
+    def require_login
+      if !current_user
+        redirect_to "/sessions/new"
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

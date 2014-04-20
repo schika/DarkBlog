@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1883792091">
+  <component name="DataSourceManagerImpl" format="xml" hash="4246824331">
     <data-source source="LOCAL" name="Rails DarkBlog: development" uuid="3ea3aa5e-60ca-4a18-a2d1-0a555e83ffa7">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>

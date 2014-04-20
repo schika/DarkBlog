@@ -16,10 +16,11 @@ header {
     background: url("dark_bg.png");
     background-size: cover;
 }
-header a {
+header ul li a {
     color: white;
 }
-header h1 {
+header h1 a {
+    color: black;
     font-size: 70px;
 }
 img {
@@ -35,9 +36,22 @@ li {
     display: inline;
     padding: 0px 10px 0px 10px;
 }
+article {
+    border-bottom: 1px solid #ccc;
+}
+input[type="text"], input[type="password"], textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+textarea {
+    overflow: auto;
+    padding-left: 3px;
+    vertical-align: top;
+    width: 98%;
+}
 
 .content {
-    max-width: 500px;
+    max-width: 1024px;
     padding: 20px;
     margin: 0 auto;
 }
@@ -54,4 +68,20 @@ li {
         display: block;
         padding: 5px;
     }
+}
+.social_icons a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url("socials.png");
+    margin: 0 auto;
+}
+span.hidden {
+    visibility: hidden;
+}
+.icon-github {
+    background-position: 32px 0;
+}
+.icon-envelop {
+    background-position: 0 0;
 }
